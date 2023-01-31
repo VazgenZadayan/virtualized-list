@@ -1,0 +1,26 @@
+.list_container {
+  overflow: auto;
+  position: relative;
+}
+
+.list {
+  position: absolute;
+  width: 100%;
+  top: -100px;
+}
+
+.list_item_holder {
+  width: 100%;
+  position: absolute;
+}
+
+.list_item {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  border-radius: 10;
+  background: darkseagreen;
+}

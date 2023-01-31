@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import './styles.css';
 
 const List = ({ width, height, data, rowHeight, spacing = 10 }) => {
   const itemHeight = useMemo(() => rowHeight + spacing, [rowHeight, spacing]);
@@ -7,6 +8,7 @@ const List = ({ width, height, data, rowHeight, spacing = 10 }) => {
     () => height / itemHeight + 5,
     [height, itemHeight]
   );
+  
   const [firstIndex, setFirstIndex] = useState(0);
 
   const handleChange = (event) => {
@@ -16,14 +18,14 @@ const List = ({ width, height, data, rowHeight, spacing = 10 }) => {
   return (
     <div
       onScroll={handleChange}
+      className="list_container"
       style={{
         width,
         height,
-        overflow: 'auto',
-        position: 'relative',
       }}
     >
       <div
+        className="list"
         style={{
           height: dataLength * itemHeight,
         }}
@@ -31,24 +33,16 @@ const List = ({ width, height, data, rowHeight, spacing = 10 }) => {
         {[...data].splice(firstIndex, showItems).map((item) => (
           <div
             key={item.id}
+            className="list_item_holder"
             style={{
-              width: '100%',
               height: itemHeight,
-              position: 'absolute',
-              top: item.id * itemHeight,
+              top: (item.id + 1) * itemHeight,
             }}
           >
             <div
+              className="list_item"
               style={{
-                width: '100%',
                 height: rowHeight,
-                boxSizing: 'border-box',
-                display: 'flex',
-                alignItems: 'center',
-                border: '1px solid rgba(0,0,0,0.1)',
-                padding: '0 20px',
-                borderRadius: 10,
-                background: 'darkseagreen'
               }}
             >
               {item.title}

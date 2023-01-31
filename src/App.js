@@ -2,7 +2,7 @@ import List from 'components/List';
 
 function App() {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div className='app'>
       <List
         width={400}
         height={400}
